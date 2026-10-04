@@ -1,278 +1,278 @@
 # Gas-supply-and-demand-optimization-software-system
-مستندات سیستم نرم‌افزاری بهینه‌ساز عرضه و تقاضای گاز کشور
+Documentation of the National Gas Supply and Demand Optimizer Software System
 (Software Requirements Specification - SRS)
-۱. دامنه کاربرد (Scope)
-این سامانه نرم‌افزاری با هدف یکپارچه‌سازی، تحلیل و بهینه‌سازی عرضه و تقاضای گاز طبیعی در سطح شبکه سراسری کشور طراحی می‌شود. کاربر اصلی، امور برنامه‌ریزی دیسپچینگ ملی گاز است که وظیفه تهیه برنامه سالانه موازنه گاز کشور را بر عهده دارد.
+1. Scope
+This software system is designed to integrate, analyze and optimize natural gas supply and demand across the country's national grid. The primary user is the National Gas Dispatching Planning Affairs, which is responsible for preparing the country's annual gas balance plan.
 
-۲. مستندات مرجع (Reference Documents)
-پرسشنامه پروژه "نرم‌افزار بهینه‌ساز عرضه و تقاضای گاز" – شرکت دانش‌بنیان پترو پالاتوس
+2. Reference Documents
+Project questionnaire "Gas Supply and Demand Optimizer Software" – Petro Palatos Knowledge-Based Company
 
-دستورالعمل حق‌الزحمه عوامل تخصصی خدمات پژوهشی – مدیریت پژوهش و فناوری شرکت ملی گاز ایران
+Fee instruction for specialized research service agents – Research and Technology Management of the National Iranian Gas Company
 
-۳. نیازمندی‌های کلی سیستم (General System Requirements)
-۳-۱. هدف کلی
-طراحی و پیاده‌سازی نرم‌افزاری یکپارچه مبتنی بر مدل‌های ریاضی و الگوریتم‌های بهینه‌سازی برای ایجاد موازنه پایدار میان عرضه و تقاضای گاز کشور با حداقل ناترازی و کمترین مصرف فرآورده‌های مایع در نیروگاه‌ها.
+3. General System Requirements
+3-1. Overall Objective
+Design and implement integrated software based on mathematical models and optimization algorithms to establish a stable balance between the country's gas supply and demand with minimum imbalance and the lowest consumption of liquid products in power plants.
 
-۳-۲. اهداف سطح بالا
-هدف اول (موازنه) : دستیابی به موازنه دقیق عرضه و تقاضای گاز با خطای کمتر از ۵ درصد
+3-2. High-Level Objectives
+Objective 1 (Balance): Achieve an accurate balance of gas supply and demand with an error of less than 5 percent
 
-هدف دوم (کاهش مصرف سوخت مایع) : کاهش حداقل ۱۰ درصدی مصرف نفت‌کوره و نفت‌گاز در نیروگاه‌ها
+Objective 2 (Liquid fuel reduction): At least a 10 percent reduction in fuel oil and gas oil consumption in power plants
 
-هدف سوم (سرعت) : کاهش حداقل ۵۰ درصدی زمان تهیه برنامه سالانه نسبت به روش مبتنی بر Excel
+Objective 3 (Speed): At least a 50 percent reduction in the time to prepare the annual plan compared with the Excel-based method
 
-هدف چهارم (دقت پیش‌بینی) : دستیابی به دقت بالاتر از ۹۰ درصد در پیش‌بینی وضعیت شبکه
+Objective 4 (Forecast accuracy): Achieve accuracy above 90 percent in forecasting network status
 
-۳-۳. کاربران سیستم
-کاربران اصلی: کارشناسان امور برنامه‌ریزی دیسپچینگ ملی گاز
+3-3. System Users
+Primary users: Experts of the National Gas Dispatching Planning Affairs
 
-کاربران ثانویه: مدیران برنامه‌ریزی و راهبرد شرکت ملی گاز، کارشناسان پالایشگاه‌ها و نیروگاه‌ها
+Secondary users: Planning and strategy managers of the National Iranian Gas Company, refinery and power plant experts
 
-مدیران سیستم: تیم فنی پشتیبانی و نگهداری نرم‌افزار
+System administrators: Technical software support and maintenance team
 
-۳-۴. محدودیت‌های عمومی
-انطباق کامل با ساختار شبکه گاز کشور و قوانین داخلی
+3-4. General Constraints
+Full compliance with the structure of the country's gas network and domestic regulations
 
-قابلیت یکپارچه‌سازی با پایگاه‌های داده موجود در شرکت ملی گاز
+Ability to integrate with existing databases at the National Iranian Gas Company
 
-رعایت استانداردهای امنیت سایبری سطح ملی
+Compliance with national-level cybersecurity standards
 
-قابلیت نصب و اجرا بر روی زیرساخت‌های سخت‌افزاری موجود
+Ability to be installed and run on existing hardware infrastructure
 
-۴. بررسی اختراعات مشابه و تعیین وجه تمایز فنی
-۴-۱. بررسی اختراعات و سیستم‌های موجود
-۱. روش استقرار تامین گاز شبکه هوشمند و سیستم اینترنت اشیا (US 20240311936 A1) 
+4. Review of Similar Patents and Determination of Technical Differentiation
+4-1. Review of Existing Patents and Systems
+1. Smart grid gas supply deployment method and Internet of Things system (US 20240311936 A1)
 
-این اختراع که توسط شرکت چینی ارائه شده، بر کنترل دستگاه‌های اندازه‌گیری گاز در مناطق هدف، پیش‌بینی تقاضای آینده بر اساس داده‌های تاریخی مصرف، و تعیین دامنه اختلاف عرضه و تقاضا متمرکز است. سیستم با استفاده از مدل‌های یادگیری ماشین، علت اختلاف عرضه و تقاضا را تشخیص داده و پارامترهای تنظیم تامین گاز را پیشنهاد می‌دهد.
+This patent, filed by a Chinese company, focuses on controlling gas metering devices in target areas, forecasting future demand based on historical consumption data, and determining the range of the supply-demand difference. Using machine learning models, the system identifies the cause of the supply-demand difference and suggests gas supply adjustment parameters.
 
-محدودیت‌های کلیدی:
+Key limitations:
 
-صرفاً بر سطح منطقه‌ای (هدف منطقه) متمرکز است و قابلیت برنامه‌ریزی در سطح شبکه ملی را ندارد.
+It focuses solely on the regional level (target area) and has no planning capability at the national network level.
 
-فاقد یکپارچه‌سازی همزمان متغیرهای کلیدی نظیر برنامه تعمیرات اساسی پالایشگاه‌ها و خطوط انتقال است.
+It lacks simultaneous integration of key variables such as the turnaround schedule of refineries and transmission lines.
 
-هدف اصلی، پاسخگویی به ناترازی در لحظه است و برنامه‌ریزی استراتژیک بلندمدت را پوشش نمی‌دهد.
+The main goal is responding to imbalance in real time, and it does not cover long-term strategic planning.
 
-۲. روش تصمیم‌گیری هوشمند و نرم‌افزار برنامه عملیاتی خط لوله گاز طبیعی (NGPOS-IDMS) 
+2. Intelligent decision-making method and operational planning software for natural gas pipelines (NGPOS-IDMS)
 
-این پژوهش که در Journal of Pipeline Systems Engineering and Practice منتشر شده، ترکیبی از روش تصمیم‌گیری مبتنی بر پایگاه داده (DMD) و روش مبتنی بر الگوریتم بهینه‌سازی (DMOA) را برای شبکه خطوط لوله ارائه می‌دهد و شش حالت تصمیم‌گیری را بر اساس فناوری پرس‌وجوی فازی پایگاه داده پیشنهاد می‌کند.
+This research, published in the Journal of Pipeline Systems Engineering and Practice, presents a combination of a database-driven decision method (DMD) and an optimization-algorithm-based method (DMOA) for a pipeline network and proposes six decision-making modes based on fuzzy database query technology.
 
-محدودیت‌های کلیدی:
+Key limitations:
 
-بر روی شبکه خطوط لوله گاز در مقیاس یک شرکت یا یک کریدور خاص متمرکز است، نه کل زنجیره تامین ملی.
+It focuses on a gas pipeline network at the scale of one company or one specific corridor, not the entire national supply chain.
 
-مدل‌های بهینه‌سازی ارائه شده برای سناریوهای عرضه قطعی و نامطمئن، به طور همزمان تعمیرات اساسی و مصرف سوخت نیروگاه‌ها را مدنظر قرار نمی‌دهند.
+The optimization models presented for deterministic and uncertain supply scenarios do not simultaneously consider turnarounds and power plant fuel consumption.
 
-۳. روش، دستگاه و سیستم متعادل‌سازی و برنامه‌ریزی بهینه سیستم گاز (CN101794119A) 
+3. Gas system balancing and optimal planning method, device and system (CN101794119A)
 
-این اختراع ثبت‌شده چینی مربوط به سال ۲۰۱۰، سیستمی برای متعادل‌سازی و برنامه‌ریزی بهینه گاز در شرکت‌های پتروشیمی است که بر اساس داده‌های پیش‌بینی، مقدار تولید گاز هر واحد تولیدی و تقاضای انرژی کوره‌های گرمایشی را در یک دوره زمانی معین پیش‌بینی کرده و در صورت نامتعادلی، استراتژی و برنامه زمان‌بندی بهینه را ارائه می‌دهد.
+This registered Chinese patent from 2010 relates to a gas balancing and optimal planning system in petrochemical companies that, based on forecast data, predicts the gas production of each production unit and the energy demand of heating furnaces in a given period and, in case of imbalance, provides the optimal strategy and schedule.
 
-محدودیت‌های کلیدی:
+Key limitations:
 
-طراحی شده برای سطح یک شرکت پتروشیمی و نه شبکه ملی گاز با گستردگی و پیچیدگی بسیار بالاتر.
+Designed at the level of a single petrochemical company and not the national gas network, which is far larger and more complex.
 
-بر روی گازهای همراه و محصولات جانبی پالایشگاه‌های نفت متمرکز است، نه گاز طبیعی شبکه سراسری.
+It focuses on associated gases and by-products of oil refineries, not the natural gas of the national grid.
 
-۴. مدل بهینه‌سازی پویای توزیع و سرمایه‌گذاری شبکه گاز اروپا (GNOME) 
+4. Dynamic optimization model of the European gas network distribution and investment (GNOME)
 
-مدل GNOME که در Operations Research Forum معرفی شده، یک مدل برنامه‌ریزی خطی مختلط-صحیح (MILP) پویا با تفکیک‌پذیری بالا برای شبکه گاز اروپا و تامین‌کنندگان خارجی آن است. این مدل تقاضای گاز هر کشور را با ترکیبی کم‌هزینه از تولید داخلی، جریان خطوط لوله، واردات LNG و استفاده از ذخیره‌سازی تأمین می‌کند.
+The GNOME model, introduced in Operations Research Forum, is a high-resolution dynamic mixed-integer linear programming (MILP) model for the European gas network and its external suppliers. This model meets each country's gas demand with a low-cost combination of domestic production, pipeline flow, LNG imports and use of storage.
 
-محدودیت‌های کلیدی:
+Key limitations:
 
-عمدتاً بر روی جریان‌های تجاری و سرمایه‌گذاری زیرساختی متمرکز است، نه بهینه‌سازی عملیاتی روزانه/فصلی و کاهش مصرف سوخت مایع در نیروگاه‌ها.
+It mainly focuses on trade flows and infrastructure investment, not daily/seasonal operational optimization and reducing liquid fuel consumption in power plants.
 
-قابلیت یکپارچه‌سازی با برنامه تعمیرات اساسی تجهیزات در سطح عملیاتی را ندارد.
+It lacks the ability to integrate with the equipment turnaround schedule at the operational level.
 
-۵. اختراعات مرتبط با متعادل‌سازی استخرهای گاز (Williams Gas Pipeline - US7587326B1) 
+5. Patents related to gas pool balancing (Williams Gas Pipeline - US7587326B1)
 
-این اختراع که به Williams Gas Pipeline Company اختصاص دارد، روشی برای متعادل‌سازی همزمان و سیستماتیک کل شبکه انتقال گاز از طریق شناسایی "استخرهای" گاز، توزیع عددی گاز در شبکه و سپس توزیع فیزیکی بر اساس جواب‌های به‌دست‌آمده ارائه می‌دهد.
+This patent, assigned to Williams Gas Pipeline Company, provides a method for simultaneous and systematic balancing of the entire gas transmission network by identifying gas "pools", numerically distributing gas in the network and then physically distributing it based on the obtained solutions.
 
-محدودیت‌های کلیدی:
+Key limitations:
 
-روی متعادل‌سازی جریان در شبکه خطوط لوله (پالایشگاهی) متمرکز بوده و کل زنجیره تامین (تولید، ذخیره‌سازی، صادرات، نیروگاه‌ها) را پوشش نمی‌دهد.
+It focuses on flow balancing in the (refinery) pipeline network and does not cover the entire supply chain (production, storage, export, power plants).
 
-عمدتاً برای عملیات لحظه‌ای یا کوتاه‌مدت طراحی شده و قابلیت برنامه‌ریزی استراتژیک سالانه را ندارد.
+It is designed mainly for real-time or short-term operations and lacks annual strategic planning capability.
 
-۴-۲. وجه تمایز فنی اختراع پیشنهادی
-ویژگی کلیدی	اختراعات مشابه	اختراع پیشنهادی (وجه تمایز)
-مقیاس شبکه	منطقه‌ای، پتروشیمی، خط لوله خاص	شبکه ملی گاز کشور با تمامی اجزای زنجیره تامین (پالایشگاه‌ها، انتقال، ذخیره‌سازی، صادرات/واردات، نیروگاه‌ها، صنایع و مصارف خانگی)
-یکپارچه‌سازی تعمیرات	عمدتاً در نظر گرفته نشده یا به صورت محدود	یکپارچه‌سازی کامل برنامه تعمیرات اساسی پالایشگاه‌ها، خطوط انتقال و تجهیزات کلیدی در مدل بهینه‌سازی
-تابع هدف چندبعدی	عمدتاً کمینه‌سازی هزینه یا بیشینه‌سازی رفاه	تابع هدف ترکیبی: (۱) کمینه‌سازی ناترازی گاز، (۲) کمینه‌سازی مصرف سوخت مایع (نفت‌کوره و نفت‌گاز) در نیروگاه‌ها، (۳) کمینه‌سازی هزینه‌های عملیاتی
-رویکرد حل	برنامه‌ریزی خطی، MILP، یا روش‌های ابتکاری ساده	الگوریتم‌های فراابتکاری هیبریدی (ترکیب الگوریتم‌های ژنتیک، ازدحام ذرات و بهینه‌سازی کلونی مورچگان) با قابلیت مقیاس‌پذیری بالا
-پیش‌بینی هوشمند	عمدتاً مبتنی بر داده‌های تاریخی ساده	مدل‌های پیش‌بینی مبتنی بر یادگیری عمیق (LSTM، GRU) برای پیش‌بینی مصرف فصلی و اثرات شرایط آب‌وهوایی
-تحلیل سناریو	معمولاً محدود به چند سناریوی از پیش تعریف شده	تولید و تحلیل پویای صدها سناریوی مختلف (سناریوهای خوش‌بینانه، بدبینانه و محتمل) با گزارش‌دهی هوشمند
-جایگزینی Excel	سیستم‌های تخصصی با معماری بسته	جایگزینی کامل روش دستی مبتنی بر Excel با یک سامانه تصمیم‌یار یکپارچه و کاربرپسند
-بومی‌سازی	عموماً بر اساس شرایط کشورهای دیگر	طراحی بر اساس ساختار خاص شبکه گاز ایران، محدودیت‌های عملیاتی، قوانین و مقررات داخلی
-۵. نیازمندی‌های عملکردی (Functional Requirements)
-۵-۱. مدیریت داده‌ها
-شناسه	نیازمندی	اولویت
-FR-01	سیستم باید قابلیت دریافت، ذخیره‌سازی و یکپارچه‌سازی داده‌های تولید گاز از کلیه پالایشگاه‌های کشور را داشته باشد	ضروری
-FR-02	سیستم باید قابلیت دریافت و ذخیره‌سازی داده‌های مصرف گاز در بخش‌های خانگی، صنایع، نیروگاه‌ها و پتروشیمی‌ها را داشته باشد	ضروری
-FR-03	سیستم باید قابلیت ثبت، به‌روزرسانی و مدیریت برنامه زمان‌بندی تعمیرات اساسی کلیه واحدهای تولیدی و خطوط انتقال را داشته باشد	ضروری
-FR-04	سیستم باید قابلیت ثبت داده‌های صادرات و واردات گاز (حجم، قیمت، زمان‌بندی) را داشته باشد	ضروری
-FR-05	سیستم باید بتواند داده‌های ورودی را از نظر صحت، کامل‌بودن و سازگاری اعتبارسنجی نماید	ضروری
-FR-06	سیستم باید قابلیت ذخیره‌سازی نسخه‌های مختلف داده‌ها و برنامه‌های تولید شده را داشته باشد	مطلوب
-۵-۲. مدل‌سازی ریاضی
-شناسه	نیازمندی	اولویت
-FR-07	سیستم باید دارای مدل ریاضی کامل از شبکه گاز کشور با تعریف گره‌های تولید، مصرف، ذخیره‌سازی و انتقال باشد	ضروری
-FR-08	سیستم باید قادر به تعریف تابع هدف با قابلیت وزن‌دهی به معیارهای مختلف (ناترازی، مصرف سوخت مایع، هزینه) باشد	ضروری
-FR-09	سیستم باید کلیه محدودیت‌های عملیاتی (ظرفیت خطوط، فشار، کیفیت گاز، محدودیت‌های ذخیره‌سازی) را مدل‌سازی نماید	ضروری
-FR-10	سیستم باید قابلیت مدل‌سازی عدم‌قطعیت‌ها (تغییرات فصلی مصرف، خرابی تجهیزات، تغییرات قیمت) را داشته باشد	مهم
-FR-11	سیستم باید قابلیت اعمال سناریوهای مختلف سیاستی (تغییر سقف صادرات، محدودیت مصرف، تغییر قیمت حامل‌های انرژی) را داشته باشد	مهم
-۵-۳. الگوریتم‌های بهینه‌سازی و پیش‌بینی
-شناسه	نیازمندی	اولویت
-FR-12	سیستم باید حداقل یک الگوریتم فراابتکاری (الگوریتم ژنتیک، ازدحام ذرات یا ترکیبی) برای حل مسئله بهینه‌سازی پیاده‌سازی نماید	ضروری
-FR-13	سیستم باید مدل پیش‌بینی مصرف گاز مبتنی بر یادگیری عمیق (LSTM یا معادل) را پیاده‌سازی نماید	ضروری
-FR-14	سیستم باید قابلیت انجام تحلیل حساسیت بر روی پارامترهای کلیدی را داشته باشد	مهم
-FR-15	سیستم باید قابلیت شبیه‌سازی و مقایسه سناریوهای مختلف بهینه‌سازی را داشته باشد	ضروری
-FR-16	الگوریتم باید قادر باشد جواب بهینه را در زمان معقول (حداکثر ۶۰ دقیقه برای یک برنامه سالانه) تولید نماید	ضروری
-۵-۴. واسط کاربری و گزارش‌گیری
-شناسه	نیازمندی	اولویت
-FR-17	سیستم باید دارای داشبورد مدیریتی با نمایش وضعیت کلی شبکه (تولید، مصرف، ناترازی، ذخیره‌سازی) باشد	ضروری
-FR-18	سیستم باید قابلیت تولید گزارش‌های تحلیلی متنوع (گزارش موازنه، گزارش مصرف سوخت، گزارش تعمیرات، گزارش سناریوها) را داشته باشد	ضروری
-FR-19	سیستم باید قابلیت نمایش گرافیکی شبکه گاز و وضعیت گره‌ها را داشته باشد	مهم
-FR-20	سیستم باید قابلیت خروجی‌گیری در فرمت‌های استاندارد (Excel، PDF، CSV) را داشته باشد	ضروری
-FR-21	سیستم باید از مدیریت سطوح دسترسی کاربران (ادمین، کارشناس ارشد، کارشناس، مشاهده‌گر) پشتیبانی نماید	ضروری
-۵-۵. یکپارچه‌سازی
-شناسه	نیازمندی	اولویت
-FR-22	سیستم باید قابلیت دریافت داده از طریق وب‌سرویس (API) از سیستم‌های موجود شرکت ملی گاز را داشته باشد	ضروری
-FR-23	سیستم باید قابلیت اتصال به پایگاه‌های داده سازمانی (Oracle، SQL Server) را داشته باشد	ضروری
-FR-24	سیستم باید قابلیت تبادل داده با سامانه‌های پالایشگاه‌ها و نیروگاه‌ها را داشته باشد	مهم
-۶. نیازمندی‌های غیرعملکردی (Non-Functional Requirements)
-۶-۱. عملکرد و مقیاس‌پذیری
-شناسه	نیازمندی	مقدار هدف
-NFR-01	زمان پاسخ‌دهی برای نمایش داشبورد	کمتر از ۳ ثانیه
-NFR-02	زمان اجرای الگوریتم بهینه‌سازی برای برنامه سالانه	کمتر از ۶۰ دقیقه
-NFR-03	زمان بازیابی داده‌های تاریخی	کمتر از ۱۰ ثانیه برای هر سال
-NFR-04	حداکثر تعداد کاربر همزمان	حداقل ۵۰ کاربر
-NFR-05	ظرفیت ذخیره‌سازی داده	حداقل ۱۰ سال داده عملیاتی
-۶-۲. امنیت و قابلیت اطمینان
-شناسه	نیازمندی	توضیح
-NFR-06	احراز هویت دو مرحله‌ای	برای کاربران با دسترسی بالا
-NFR-07	رمزنگاری داده‌ها	داده‌های حساس با AES-256 رمزگذاری شوند
-NFR-08	نسخه‌پشتیبان خودکار	پشتیبان‌گیری روزانه از پایگاه داده
-NFR-09	ثبت وقایع (Audit Log)	ثبت کلیه فعالیت‌های کاربران و تغییرات
-NFR-10	در دسترس بودن سیستم	حداقل ۹۹% در ساعات کاری
-۶-۳. قابلیت استفاده
-شناسه	نیازمندی	توضیح
-NFR-11	زبان رابط کاربری	فارسی با پشتیبانی از اعداد و تاریخ‌های شمسی
-NFR-12	مستندات کاربری	راهنمای کاربری کامل به زبان فارسی
-NFR-13	آموزش کاربران	دوره‌های آموزش حضوری و آنلاین برای کاربران اصلی
-NFR-14	راهنمای درون‌برنامه‌ای	Tooltip و راهنمای گام‌به‌گام در محیط نرم‌افزار
-۶-۴. قابلیت نگهداری
-شناسه	نیازمندی	توضیح
-NFR-15	معماری ماژولار	امکان توسعه و به‌روزرسانی ماژول‌ها به صورت مستقل
-NFR-16	مستندات فنی	مستندات کامل معماری، پایگاه داده و کد نویسی
-NFR-17	قابلیت عیب‌یابی	لاگ‌های جامع برای عیب‌یابی و رفع خطا
-۷. سناریوهای استفاده (Use Cases)
-سناریوی اصلی: تهیه برنامه سالانه موازنه گاز
-کارشناس، داده‌های جدید تولید، مصرف، تعمیرات، صادرات و واردات را وارد سیستم می‌کند
-
-سیستم داده‌ها را اعتبارسنجی کرده و در صورت وجود خطا، هشدار می‌دهد
-
-کارشناس، پارامترهای بهینه‌سازی (وزن‌های تابع هدف، محدودیت‌ها) را تنظیم می‌نماید
-
-سیستم، الگوریتم بهینه‌سازی را با داده‌های وارد شده اجرا می‌کند
-
-سیستم، برنامه بهینه تولید و مصرف را به همراه گزارش تحلیلی و نمودارها نمایش می‌دهد
-
-کارشناس، برنامه را بررسی و در صورت لزوم، سناریوهای جایگزین را اجرا می‌کند
-
-برنامه نهایی به همراه مستندات، برای تأیید نهایی صادر می‌شود
-
-سناریوی پیش‌بینی و هشدار
-سیستم به صورت خودکار، داده‌های لحظه‌ای را از مبادی تولید و مصرف دریافت می‌کند
-
-مدل پیش‌بینی، وضعیت شبکه را برای ۷ روز آینده شبیه‌سازی می‌نماید
-
-در صورت پیش‌بینی ناترازی بحرانی، هشدار برای کارشناس ارسال می‌شود
-
-کارشناس، سناریوهای پیشنهادی سیستم برای مدیریت بحران را بررسی می‌نماید
-
-سناریوی تحلیل تعمیرات
-برنامه تعمیرات اساسی سالانه از طریق API یا ورودی دستی ثبت می‌شود
-
-سیستم، اثرات تعمیرات هر واحد بر موازنه کلی شبکه را شبیه‌سازی می‌نماید
-
-کارشناس، تأثیر تعمیرات بر مصرف سوخت مایع را در سناریوهای مختلف مشاهده می‌کند
-
-۸. معماری کلی سیستم
-لایه‌های معماری
-لایه ارائه (Presentation Layer) : رابط کاربری وب‌محور (React/Vue.js) با داشبوردهای تعاملی
-
-لایه برنامه (Application Layer) : API Gateway، سرویس‌های بهینه‌سازی، سرویس‌های پیش‌بینی، سرویس مدیریت داده
-
-لایه داده (Data Layer) : پایگاه داده رابطه‌ای (PostgreSQL) و پایگاه داده زمانی (InfluxDB یا TimescaleDB)
-
-لایه زیرساخت (Infrastructure Layer) : سرورهای مجازی، ذخیره‌سازی ابری، پشتیبان‌گیری
-
-مؤلفه‌های اصلی
-موتور بهینه‌سازی: پیاده‌سازی الگوریتم‌های فراابتکاری با استفاده از زبان Python و کتابخانه‌های NumPy، SciPy
-
-موتور پیش‌بینی: مدل‌های LSTM با استفاده از TensorFlow/Keras
-
-مدیریت داده: ETL Pipeline برای یکپارچه‌سازی داده‌ها از منابع مختلف
-
-داشبورد مدیریتی: نمایش وضعیت شبکه، گزارش‌ها، و تحلیل‌های تعاملی
-
-۹. محدودیت‌های طراحی
-شناسه	محدودیت	توضیح
-DC-01	استفاده از نرم‌افزارهای متن‌باز	ترجیح با نرم‌افزارهای Open Source برای کاهش هزینه‌ها
-DC-02	انطباق با استانداردهای شرکت ملی گاز	انطباق کامل با استانداردهای ICT شرکت ملی گاز
-DC-03	قابلیت اجرا بر روی سخت‌افزار موجود	طراحی بر اساس سرورهای موجود در شرکت ملی گاز
-DC-04	مستقل از سیستم‌عامل	قابلیت نصب بر روی Linux و Windows Server
-۱۰. مفروضات و وابستگی‌ها
-مفروضات
-داده‌های مورد نیاز از طریق همکاری شرکت ملی گاز، پالایشگاه‌ها و نیروگاه‌ها قابل تأمین است
-
-زیرساخت شبکه و سخت‌افزاری مورد نیاز در شرکت ملی گاز فراهم می‌باشد
-
-کاربران دارای دانش کافی در زمینه برنامه‌ریزی شبکه گاز هستند
-
-الگوریتم‌های فراابتکاری می‌توانند جواب قابل قبولی برای مسئله در زمان معقول ارائه دهند
-
-وابستگی‌ها
-همکاری سازمان‌های مختلف برای تأمین داده‌های به‌روز و دقیق
-
-تأیید و تصویب سازمان پژوهش و فناوری شرکت ملی گاز
-
-تأمین لایسنس‌های نرم‌افزاری مورد نیاز (در صورت نیاز)
-
-۱۱. پیوست‌ها
-پیوست اول: مدل داده مفهومی
-جدول پالایشگاه‌ها
-
-جدول خطوط انتقال
-
-جدول گره‌های مصرف
-
-جدول ذخیره‌سازی‌ها
-
-جدول تعمیرات اساسی
-
-جدول سناریوها
-
-جدول نتایج بهینه‌سازی
-
-پیوست دوم: الگوریتم‌های پیشنهادی
-الگوریتم اصلی بهینه‌سازی: الگوریتم ژنتیک با عملگرهای ترکیبی سفارشی‌سازی شده برای مسئله موازنه گاز
-
-الگوریتم پیش‌بینی مصرف: شبکه LSTM با ۳ لایه پنهان
-
-الگوریتم بهینه‌سازی تعمیرات: الگوریتم ازدحام ذرات با قیود زمانی
-
-پیوست سوم: شاخص‌های کلیدی ارزیابی (KPIs)
-شاخص	روش اندازه‌گیری	مقدار هدف
-دقت موازنه	خطای مطلق درصدی (MAPE)	< 5%
-کاهش مصرف سوخت مایع	مقایسه با برنامه دستی	≥ 10%
-زمان تهیه برنامه	زمان از ورود داده تا خروجی نهایی	≤ 60 دقیقه
-دقت پیش‌بینی	RMSE	≤ 5%
-رضایت کاربران	نظرسنجی از کاربران	≥ 80%
-۱۲. امضای تأیید
-نقش	نام	امضا	تاریخ
-مجری پروژه	نصرت علی اشرفی پیامن		
-همکار اصلی	محمد پارسا سهرابی		
-همکار اصلی	الهام کوکبی دانا		
-همکار اصلی	منصوره قربانی		
-همکار اصلی	بهاره کردی		
-همکار اصلی	الهام بیده		
-همکار اصلی	رستم قاسم خانی		
+4-2. Technical Differentiation of the Proposed Invention
+Key feature	Similar patents	Proposed invention (differentiation)
+Network scale	Regional, petrochemical, specific pipeline	The national gas network with all components of the supply chain (refineries, transmission, storage, export/import, power plants, industries and household consumption)
+Turnaround integration	Mainly not considered or only limited	Complete integration of the turnaround schedule of refineries, transmission lines and key equipment in the optimization model
+Multi-dimensional objective function	Mainly cost minimization or welfare maximization	Combined objective function: (1) minimizing gas imbalance, (2) minimizing liquid fuel consumption (fuel oil and gas oil) in power plants, (3) minimizing operating costs
+Solution approach	Linear programming, MILP, or simple heuristics	Hybrid metaheuristic algorithms (a combination of genetic algorithms, particle swarm and ant colony optimization) with high scalability
+Intelligent forecasting	Mainly based on simple historical data	Deep-learning-based forecasting models (LSTM, GRU) for forecasting seasonal consumption and the effects of weather conditions
+Scenario analysis	Usually limited to a few predefined scenarios	Dynamic generation and analysis of hundreds of different scenarios (optimistic, pessimistic and probable) with intelligent reporting
+Excel replacement	Specialized systems with closed architecture	Complete replacement of the manual Excel-based method with an integrated and user-friendly decision support system
+Localization	Generally based on the conditions of other countries	Designed based on the specific structure of Iran's gas network, operational constraints, and domestic laws and regulations
+5. Functional Requirements
+5-1. Data Management
+ID	Requirement	Priority
+FR-01	The system must be able to receive, store and integrate gas production data from all refineries in the country	Essential
+FR-02	The system must be able to receive and store gas consumption data in the household, industry, power plant and petrochemical sectors	Essential
+FR-03	The system must be able to record, update and manage the turnaround schedule of all production units and transmission lines	Essential
+FR-04	The system must be able to record gas export and import data (volume, price, schedule)	Essential
+FR-05	The system must be able to validate input data for accuracy, completeness and consistency	Essential
+FR-06	The system must be able to store different versions of data and generated plans	Desirable
+5-2. Mathematical Modeling
+ID	Requirement	Priority
+FR-07	The system must have a complete mathematical model of the country's gas network with definition of production, consumption, storage and transmission nodes	Essential
+FR-08	The system must be able to define an objective function with weighting capability for different criteria (imbalance, liquid fuel consumption, cost)	Essential
+FR-09	The system must model all operational constraints (line capacity, pressure, gas quality, storage constraints)	Essential
+FR-10	The system must be able to model uncertainties (seasonal consumption changes, equipment failure, price changes)	Important
+FR-11	The system must be able to apply different policy scenarios (changing export ceilings, consumption restrictions, changing energy carrier prices)	Important
+5-3. Optimization and Forecasting Algorithms
+ID	Requirement	Priority
+FR-12	The system must implement at least one metaheuristic algorithm (genetic algorithm, particle swarm or a hybrid) to solve the optimization problem	Essential
+FR-13	The system must implement a deep-learning-based gas consumption forecasting model (LSTM or equivalent)	Essential
+FR-14	The system must be able to perform sensitivity analysis on key parameters	Important
+FR-15	The system must be able to simulate and compare different optimization scenarios	Essential
+FR-16	The algorithm must be able to produce the optimal solution in a reasonable time (at most 60 minutes for an annual plan)	Essential
+5-4. User Interface and Reporting
+ID	Requirement	Priority
+FR-17	The system must have a management dashboard showing the overall network status (production, consumption, imbalance, storage)	Essential
+FR-18	The system must be able to generate various analytical reports (balance report, fuel consumption report, turnaround report, scenario report)	Essential
+FR-19	The system must be able to graphically display the gas network and node status	Important
+FR-20	The system must be able to export in standard formats (Excel, PDF, CSV)	Essential
+FR-21	The system must support user access level management (admin, senior expert, expert, viewer)	Essential
+5-5. Integration
+ID	Requirement	Priority
+FR-22	The system must be able to receive data through web services (API) from existing systems of the National Iranian Gas Company	Essential
+FR-23	The system must be able to connect to enterprise databases (Oracle, SQL Server)	Essential
+FR-24	The system must be able to exchange data with refinery and power plant systems	Important
+6. Non-Functional Requirements
+6-1. Performance and Scalability
+ID	Requirement	Target value
+NFR-01	Response time for displaying the dashboard	Less than 3 seconds
+NFR-02	Execution time of the optimization algorithm for the annual plan	Less than 60 minutes
+NFR-03	Historical data retrieval time	Less than 10 seconds per year
+NFR-04	Maximum number of concurrent users	At least 50 users
+NFR-05	Data storage capacity	At least 10 years of operational data
+6-2. Security and Reliability
+ID	Requirement	Description
+NFR-06	Two-factor authentication	For users with high-level access
+NFR-07	Data encryption	Sensitive data must be encrypted with AES-256
+NFR-08	Automatic backup	Daily database backup
+NFR-09	Event logging (Audit Log)	Logging of all user activities and changes
+NFR-10	System availability	At least 99% during working hours
+6-3. Usability
+ID	Requirement	Description
+NFR-11	User interface language	Persian with support for Solar Hijri numbers and dates
+NFR-12	User documentation	Complete user guide in Persian
+NFR-13	User training	In-person and online training courses for primary users
+NFR-14	In-app guidance	Tooltips and step-by-step guidance within the software
+6-4. Maintainability
+ID	Requirement	Description
+NFR-15	Modular architecture	Ability to develop and update modules independently
+NFR-16	Technical documentation	Complete documentation of the architecture, database and coding
+NFR-17	Troubleshooting capability	Comprehensive logs for troubleshooting and error resolution
+7. Use Cases
+Main scenario: Preparing the annual gas balance plan
+The expert enters new production, consumption, turnaround, export and import data into the system
+
+The system validates the data and issues a warning if there is an error
+
+The expert sets the optimization parameters (objective function weights, constraints)
+
+The system runs the optimization algorithm with the entered data
+
+The system displays the optimal production and consumption plan along with an analytical report and charts
+
+The expert reviews the plan and, if necessary, runs alternative scenarios
+
+The final plan is issued together with documentation for final approval
+
+Forecasting and alerting scenario
+The system automatically receives real-time data from production and consumption sources
+
+The forecasting model simulates the network status for the next 7 days
+
+If a critical imbalance is predicted, an alert is sent to the expert
+
+The expert reviews the system's proposed scenarios for crisis management
+
+Turnaround analysis scenario
+The annual turnaround schedule is recorded through an API or manual entry
+
+The system simulates the effects of each unit's turnaround on the overall network balance
+
+The expert observes the effect of turnarounds on liquid fuel consumption in different scenarios
+
+8. Overall System Architecture
+Architecture Layers
+Presentation Layer: Web-based user interface (React/Vue.js) with interactive dashboards
+
+Application Layer: API Gateway, optimization services, forecasting services, data management service
+
+Data Layer: Relational database (PostgreSQL) and time-series database (InfluxDB or TimescaleDB)
+
+Infrastructure Layer: Virtual servers, cloud storage, backup
+
+Main Components
+Optimization engine: Implementation of metaheuristic algorithms using Python and the NumPy and SciPy libraries
+
+Forecasting engine: LSTM models using TensorFlow/Keras
+
+Data management: ETL Pipeline for integrating data from different sources
+
+Management dashboard: Display of network status, reports, and interactive analyses
+
+9. Design Constraints
+ID	Constraint	Description
+DC-01	Use of open-source software	Preference for Open Source software to reduce costs
+DC-02	Compliance with National Iranian Gas Company standards	Full compliance with the ICT standards of the National Iranian Gas Company
+DC-03	Ability to run on existing hardware	Designed based on the existing servers of the National Iranian Gas Company
+DC-04	Operating-system independent	Ability to be installed on Linux and Windows Server
+10. Assumptions and Dependencies
+Assumptions
+The required data can be provided through cooperation of the National Iranian Gas Company, refineries and power plants
+
+The required network and hardware infrastructure is available at the National Iranian Gas Company
+
+Users have sufficient knowledge of gas network planning
+
+Metaheuristic algorithms can provide an acceptable solution to the problem in a reasonable time
+
+Dependencies
+Cooperation of various organizations to provide up-to-date and accurate data
+
+Approval of the Research and Technology Organization of the National Iranian Gas Company
+
+Providing required software licenses (if needed)
+
+11. Appendices
+Appendix 1: Conceptual data model
+Refineries table
+
+Transmission lines table
+
+Consumption nodes table
+
+Storage facilities table
+
+Turnarounds table
+
+Scenarios table
+
+Optimization results table
+
+Appendix 2: Proposed algorithms
+Main optimization algorithm: Genetic algorithm with custom combination operators tailored to the gas balancing problem
+
+Consumption forecasting algorithm: LSTM network with 3 hidden layers
+
+Turnaround optimization algorithm: Particle swarm algorithm with time constraints
+
+Appendix 3: Key evaluation indicators (KPIs)
+Indicator	Measurement method	Target value
+Balance accuracy	Mean absolute percentage error (MAPE)	< 5%
+Liquid fuel reduction	Comparison with the manual plan	≥ 10%
+Plan preparation time	Time from data entry to final output	≤ 60 minutes
+Forecast accuracy	RMSE	≤ 5%
+User satisfaction	User survey	≥ 80%
+12. Approval Signatures
+Role	Name	Signature	Date
+Project manager	Nosratali Ashrafi Payaman
+Main collaborator	Mohammad Parsa Sohrabi
+Main collaborator	Elham Kokabi Dana
+Main collaborator	Mansoureh Ghorbani
+Main collaborator	Bahareh Kordi
+Main collaborator	Elham Bideh
+Main collaborator	Rostam Ghasemkhani
